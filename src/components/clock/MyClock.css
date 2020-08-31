@@ -1,0 +1,23 @@
+
+.title {
+    position: absolute;
+    width: 100px;
+    left: 50%;
+    margin-left: -47.5px;
+    top: 80px;
+    text-align: center;
+    transition: all 0.25s;
+  }
+  
+  h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: inherit;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    transition: all 0.25s;
+    animation-name: delayedFadeIn;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+  }
