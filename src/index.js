@@ -18,6 +18,12 @@ class App extends React.Component {
       inputValueClass: ['keyword'],
       list: [],
       value: '',
+
+      musicData: {
+        duration: '',
+        nowTime: '',
+        progress: '',
+      },
     }
     this.audioPlay = React.createRef()
   }
@@ -95,7 +101,37 @@ class App extends React.Component {
       },
       () => {
         this.audioPlay.current.play()
-        console.log(moment(this.audioPlay.duration).format('HH:mm'))
+        setInterval(() => {
+          var progress =
+            (this.audioPlay.current.currentTime /
+              this.audioPlay.current.duration) *
+            100
+
+          // console.log(
+          //   moment(parseInt(this.audioPlay.current.currentTime * 1000)).format(
+          //     'mm:ss'
+          //   ),
+          //   moment(parseInt(this.audioPlay.current.duration * 1000)).format(
+          //     'mm:ss'
+          //   )
+          // )
+          let clone = this.state.musicData
+          clone.progress = progress
+          // let aa = this.audioPlay.current.currentTime * 1000
+          // console.log(parseInt(aa))
+          // let bb = moment(aa).format('mm')
+          // console.log(bb)
+          clone.nowTime = moment(
+            parseInt(
+              (this.audioPlay.current.duration -
+                this.audioPlay.current.currentTime) *
+                1000
+            )
+          ).format('mm:ss')
+          this.setState({
+            musicData: clone,
+          })
+        }, 1000)
       }
     )
   }
@@ -148,6 +184,19 @@ class App extends React.Component {
           ref={this.audioPlay}
           src={this.state.url}
         />
+
+        <div className="app-progress">
+          <div
+            className="app-progress-line"
+            style={{
+              width: this.state.musicData.progress + '%',
+            }}
+          ></div>
+          <div className="app-progress-time">
+            {this.state.musicData.nowTime}
+          </div>
+        </div>
+
         <div className={this.state.inputValueClass.join(' ')}>
           {this.state.list.map((item, index) => {
             return (
