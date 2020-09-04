@@ -1,0 +1,19 @@
+.popUp {
+	position: absolute;
+	z-index: 100;
+	width: 600px;
+	height: 500px;
+	top: calc(50% - 250px);
+	left: calc(50% - 300px);
+	background-color: var(--bg-w-pure);
+	font-size: small;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: rgba(0, 0, 0, 0.05) 0 10px 20px;
+	transform: rotate3d(1, 1, 0, 90deg);
+	transition: all 0.25s;
+
+	display: block;
+	opacity: 1;
+	transform: none;
+}
