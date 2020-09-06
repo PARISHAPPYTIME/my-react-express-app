@@ -1,0 +1,38 @@
+.messgaeBox {
+  width: 256px;
+  text-align: left;
+  padding: 13px 20px;
+  border-radius: 12px;
+  /* color: black; */
+  color: white;
+  position: fixed;
+  right: 10px;
+  top: -240px;
+  background-color: rgb(255, 255, 255, .25);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: color 0.25s, background-color 0.25s, box-shadow 0.25s, left 0.25s,
+    opacity 0.25s, top 0.25s, width 0.25s;
+}
+
+.messgaeBox .message-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+}
+
+.messgaeBox .message-icon i {
+  font-size: 20px;
+}
+
+.messgaeBox .txt {
+  overflow: hidden;
+  zoom: 1;
+  letter-spacing: 1px;
+  line-height: 28px;
+  padding-left: 10px;
+}
